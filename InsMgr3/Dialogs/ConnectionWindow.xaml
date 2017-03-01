@@ -1,0 +1,38 @@
+﻿<dxc:DXWindow x:Class="InsMgr3.Dialogs.ConnectionWindow" Name="ConnectionWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:ap="clr-namespace:InsMgr3.AttachedProperties"
+        mc:Ignorable="d"
+        Title="Connect" Height="300" Width="300" ap:DialogResultProperty.DialogResult="{Binding DialogResult}">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Margin="3" Content="IP/HostName:" />
+        <Label Grid.Column="0" Grid.Row="1" Margin="3" Content="Port Number:" />
+        <Label Grid.Column="0" Grid.Row="2" Margin="3" Content="Password:"  />
+        <Label Grid.Column="0" Grid.Row="3" Margin="3" Content="Chat Name:" />
+
+        <dxe:TextEdit Grid.Row="0" Grid.Column="1" EditValue="{Binding AddressOrHostname}" Margin="3" />
+        <dxe:TextEdit Grid.Row="1" Grid.Column="1" EditValue="{Binding PortNumber}" Margin="3" />
+        <dxe:PasswordBoxEdit Grid.Row="2" Grid.Column="1" EditValue="{Binding Password}" Margin="3" />
+        <dxe:TextEdit Grid.Row="3" Grid.Column="1" EditValue="{Binding ChatName}" Margin="3" />
+        <dx:SimpleButton Grid.Row="5" Grid.Column="1" Content="Connect" HorizontalAlignment="Right" Command="{Binding ConnectCommand}" />
+    </Grid>
+</dxc:DXWindow>

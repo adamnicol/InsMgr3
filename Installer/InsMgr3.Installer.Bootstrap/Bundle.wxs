@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:vi="http://schemas.visualinstaller.de/VisualInstallerWixExtension">
+
+  <Bundle Name="InsMgr 3.0" Version="3.0.0.0"
+         Manufacturer="Adam Nicol"
+         UpgradeCode="95b45eb1-3f2a-42f1-b273-93137880941e"
+         SplashScreenSourceFile="Resources\splash.bmp"
+         IconSourceFile="Resources\icon.ico"
+             >
+
+    <!--<Update Location="http://test.laika42.com/UpdateInfo.xml"/>-->
+
+    <!-- Payload, that has to be added to run the boostrapper application -->
+    <BootstrapperApplicationRef Id='ManagedBootstrapperApplicationHost'>
+      <PayloadGroupRef Id='VisualInstallerRuntimeFiles'/>
+    </BootstrapperApplicationRef>
+
+
+    <Variable Name='LICENSESTRING' bal:Overridable='yes' Value=''/>
+    <Variable Name="INSTALLDIR" bal:Overridable='yes' Value='[ProgramFilesFolder]InsMgr3'/>
+    
+    <Chain>
+      <PackageGroupRef Id='NetFx40Web' />
+      <MsiPackage SourceFile="$(var.InsMgr3.Installer.TargetPath)" >
+        <vi:ExtendedInstallSize InstallDirProperty='INSTALLFOLDER'  /> 
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>

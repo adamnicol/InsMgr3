@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="InsMgr" Language="1033" Version="3.0.0.0" Manufacturer="Adam Nicol" UpgradeCode="352c903e-3470-4ea3-b2bf-11ebed2feae7">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="InsMgr3" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="InsMgr3" />
+			</Directory>
+    </Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			 <Component Id="ProductComponent" Guid="2AF86795-2D09-41AE-B653-41D413D52399">
+         
+         <!-- InsMgr3 -->
+         <File Source="$(var.InsMgr3.TargetDir)InsMgr3.exe" />
+         <File Source="$(var.InsMgr3.TargetDir)InsMgr3.ViewModel.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)InsMgr3.Model.dll" />
+         
+         <!-- DevExpress -->
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Data.v16.1.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Images.v16.1.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Mvvm.v16.1.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Pdf.v16.1.Core.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Printing.v16.1.Core.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Core.v16.1.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Docking.v16.1.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Layout.v16.1.Core.dll" />
+         
+         <!-- Other -->
+         <File Source="$(var.InsMgr3.TargetDir)DryIoc.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)Newtonsoft.Json.dll" />
+         <File Source="$(var.InsMgr3.TargetDir)NLog.dll" />
+         
+			 </Component> 
+		</ComponentGroup>
+	</Fragment>
+</Wix>
