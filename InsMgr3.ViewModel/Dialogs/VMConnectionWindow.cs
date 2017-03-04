@@ -22,9 +22,9 @@ namespace InsMgr3.ViewModel.Dialogs
 
         public ICommand ConnectCommand => new DelegateCommand(Connect);
 
-        public VMConnectionWindow(ISettingsModel settings)
+        public VMConnectionWindow(ISettingsModel sm)
         {
-            ChatName = settings.GetSettings().ChatName;
+            ChatName = sm.Settings.ChatName;
         }
 
         private void Connect()

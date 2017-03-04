@@ -53,6 +53,7 @@
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Helpers\SerializationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ISettings.cs" />
     <Compile Include="Settings\ISettingsModel.cs" />
     <Compile Include="Settings\SettingsModel.cs" />
     <Compile Include="Settings\Settings.cs" />

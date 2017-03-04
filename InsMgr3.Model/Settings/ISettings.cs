@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace InsMgr3.Model.Settings
 {
-    public interface ISettingsModel
+    public interface ISettings
     {
-        ISettings Settings { get; }
-
-        void SaveSettings();
-        void ResetDefaults();
+        string ChatName { get; set; }
     }
 }

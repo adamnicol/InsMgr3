@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace InsMgr3.Model.Settings
 {
-    public class Settings
+    public class Settings : ISettings
     {
-        public string ChatName { get; set; }
+        public string ChatName { get; set; } = "Chat User";
     }
 }

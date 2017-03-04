@@ -5,29 +5,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InsMgr3.Model.Helpers;
+using NLog;
 
 namespace InsMgr3.Model.Settings
 {
     public class SettingsModel : ISettingsModel
     {
-        private string MyDocuments => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        private string ConfigPath => $@"{MyDocuments}\InsMgr3\settings.json";
+        private FileInfo ConfigPath => new FileInfo(
+            $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\InsMgr3\settings.json");
 
-        private Settings settings = null;
+        private ILogger log;
 
-        public Settings GetSettings()
+        public SettingsModel(ILogger logger)
         {
-            try
+            log = logger;
+        }
+
+        private ISettings settings = null;
+
+        public ISettings Settings
+        {
+            get
             {
                 if (settings == null)
-                    settings = SerializationHelper.Deserialize<Settings>(ConfigPath) ?? new Settings();
+                    settings = GetSettings();
 
                 return settings;
             }
+        }
+
+        private ISettings GetSettings()
+        {
+            try
+            {
+                return Serializer.Deserialize<Settings>(ConfigPath) ?? new Settings();
+            }
+
             catch (Exception ex)
             {
-                settings = new Settings();
-                return settings;
+                log.Error(ex);
+                return new Settings();
             }
         }
 
@@ -35,17 +52,20 @@ namespace InsMgr3.Model.Settings
         {
             try
             {
-                SerializationHelper.Serialize(settings ?? new Settings(), ConfigPath);
+                Serializer.Serialize(Settings, ConfigPath);
             }
-            catch (Exception)
+
+            catch (Exception ex)
             {
-                //Write to error log.
+                log.Error(ex);
             }
         }
 
         public void ResetDefaults()
         {
             settings = new Settings();
+            SaveSettings();
+            log.Info("Restored default settings.");
         }
     }
 }

@@ -8,22 +8,22 @@ using Newtonsoft.Json;
 
 namespace InsMgr3.Model.Helpers
 {
-    public static class SerializationHelper
+    public static class Serializer
     {
-        public static T Deserialize<T>(string filePath) => Deserialize<T>(new FileInfo(filePath));
+        public static T Deserialize<T>(string json) => JsonConvert.DeserializeObject<T>(json);
 
         public static T Deserialize<T>(FileInfo file)
         {
             if (file.Exists)
             {
                 var json = File.ReadAllText(file.FullName);
-                return JsonConvert.DeserializeObject<T>(json);
+                return Deserialize<T>(json);
             }
 
             return default(T);
         }
 
-        public static void Serialize<T>(T obj, string filePath) => Serialize(obj, new FileInfo(filePath));
+        public static string Serialize<T>(T obj) => JsonConvert.SerializeObject(obj);
 
         public static void Serialize<T>(T obj, FileInfo file)
         {
@@ -34,7 +34,7 @@ namespace InsMgr3.Model.Helpers
 
                 using (StreamWriter sw = file.CreateText())
                 {
-                    var json = JsonConvert.SerializeObject(obj);
+                    var json = Serialize(obj);
 
                     sw.Write(json);
                 }
