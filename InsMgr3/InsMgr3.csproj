@@ -94,6 +94,7 @@
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration\Configure.cs" />
+    <Compile Include="Controls\RichTextBoxEx.cs" />
     <Compile Include="Dialogs\ConnectionWindow.xaml.cs">
       <DependentUpon>ConnectionWindow.xaml</DependentUpon>
     </Compile>

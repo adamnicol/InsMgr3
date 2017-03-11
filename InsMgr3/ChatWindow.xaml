@@ -6,7 +6,8 @@
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
-             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="InsMgr3.ChatWindow"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:ctl="clr-namespace:InsMgr3.Controls" x:Class="InsMgr3.ChatWindow"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
 
@@ -14,7 +15,7 @@
         <dxdo:LayoutGroup Orientation="Vertical">
             <dxdo:LayoutGroup>
                 <dxdo:DocumentPanel>
-                    <RichTextBox />
+                    <ctl:RichTextBoxEx />
                 </dxdo:DocumentPanel>
 
                 <dxdo:LayoutPanel Caption="User List" ItemWidth="200" />
@@ -55,8 +56,8 @@
                                 <ColumnDefinition Width="70" />
                             </Grid.ColumnDefinitions>
 
-                            <RichTextBox Grid.Column="0" Grid.ColumnSpan="3" Margin="3" />
-                            <Button Grid.Column="3" Content="Send" Margin="3" />
+                            <ctl:RichTextBoxEx RichText="{Binding Message}"  Grid.Column="0" Grid.ColumnSpan="3" Margin="3" />
+                            <Button Command="{Binding SendCommand}"  Grid.Column="3" Content="Send" Margin="3" />
                         </Grid>
 
                     </dxb:BarManager>

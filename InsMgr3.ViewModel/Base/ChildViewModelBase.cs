@@ -4,20 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using DevExpress.Xpf.Docking;
 using InsMgr3.ViewModel.Commands;
 
 namespace InsMgr3.ViewModel.Base
 {
-    public abstract class ChildViewModelBase : ViewModelBase, IChildViewModel
+    public abstract class ChildViewModelBase : ViewModelBase, IChildViewModel, IMVVMDockingProperties
     {
-        #region IChildViewModel Members
-
-        private string _caption;
-        public string Caption
-        {
-            get { return _caption; }
-            set { SetField(ref _caption, value); }
-        }
+        public string Caption { get; set; }
 
         public event EventHandler RequestClose;
 
@@ -28,6 +22,10 @@ namespace InsMgr3.ViewModel.Base
             RequestClose?.Invoke(this, EventArgs.Empty);
         }
 
-        #endregion
+        string IMVVMDockingProperties.TargetName
+        {
+            get { return "DocumentsGroup"; }
+            set { throw new NotImplementedException(); }
+        }
     }
 }

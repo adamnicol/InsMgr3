@@ -16,14 +16,5 @@ namespace InsMgr3.ViewModel.Base
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
-
-        protected void SetField<T>(ref T field, T value, [CallerMemberName] string property = null)
-        {
-            if (!EqualityComparer<T>.Default.Equals(field, value))
-            {
-                field = value;
-                FirePropertyChanged(property);
-            }
-        }
     }
 }
