@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DryIoc;
 using InsMgr3.ViewModel.Dialogs;
 using InsMgr3.ViewModel.Commands;
+using InsMgr3.ViewModel.Services;
 
 namespace InsMgr3.ViewModel.Configuration
 {
@@ -18,6 +19,8 @@ namespace InsMgr3.ViewModel.Configuration
             container.Register<ConnectCommand>(Reuse.Singleton);
             container.Register<DisconnectCommand>(Reuse.Singleton);
             container.Register<CloseCommand>(Reuse.Singleton);
+
+            container.Register<IWaitService, WaitService>();
 
             Model.Configuration.Configure.Resolver(container);
         }

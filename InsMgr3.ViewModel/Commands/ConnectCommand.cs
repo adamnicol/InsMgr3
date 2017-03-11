@@ -14,24 +14,29 @@ namespace InsMgr3.ViewModel.Commands
     {
         public event EventHandler CanExecuteChanged;
 
+        private VMMainWindow mainWindow;
         private IResolver resolver;
-        private IDialogService dialogService;        
+        private IDialogService dialogService;
+        private IWaitService waitService;
 
-        public ConnectCommand(IResolver resolver, IDialogService ds)
+        public ConnectCommand(VMMainWindow mw, IResolver rs, IDialogService ds, IWaitService ws)
         {
-            this.resolver = resolver;
-            this.dialogService = ds;
+            mainWindow = mw;
+            resolver = rs;
+            dialogService = ds;
+            waitService = ws;
         }
 
         public bool CanExecute(object parameter) => true;
 
         public void Execute(object parameter)
         {
-            var viewModel = resolver.Resolve<VMConnectionWindow>();
+            var vm = resolver.Resolve<VMConnectionWindow>();
 
-            if (dialogService.ShowDialog(viewModel) == true)
+            if (dialogService.ShowDialog(vm) == true)
             {
-
+                waitService.SetBusyState();
+                mainWindow.AddChildWindow(new VMChatWindow() { Caption = "Chat Window" });
             }
         }
     }

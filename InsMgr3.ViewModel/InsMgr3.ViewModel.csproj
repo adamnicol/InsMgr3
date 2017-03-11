@@ -76,6 +76,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IWaitService.cs" />
+    <Compile Include="Services\WaitService.cs" />
     <Compile Include="VMChatWindow.cs" />
     <Compile Include="VMMainWindow.cs" />
   </ItemGroup>
