@@ -30,20 +30,21 @@
         <File Source="$(var.InsMgr3.TargetDir)InsMgr3.Model.dll" />
 
         <!-- DevExpress -->
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Data.v16.1.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Images.v16.1.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Mvvm.v16.1.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Pdf.v16.1.Core.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Printing.v16.1.Core.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Core.v16.1.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Docking.v16.1.dll" />
-        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Layout.v16.1.Core.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Data.v16.2.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Images.v16.2.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Mvvm.v16.2.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Pdf.v16.2.Core.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Printing.v16.2.Core.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Core.v16.2.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Docking.v16.2.dll" />
+        <File Source="$(var.InsMgr3.TargetDir)DevExpress.Xpf.Layout.v16.2.Core.dll" />
 
         <!-- Other -->
         <File Source="$(var.InsMgr3.TargetDir)DryIoc.dll" />
         <File Source="$(var.InsMgr3.TargetDir)Newtonsoft.Json.dll" />
         <File Source="$(var.InsMgr3.TargetDir)NLog.dll" />
         <File Source="$(var.InsMgr3.TargetDir)NLog.config" />
+        <File Source="$(var.InsMgr3.TargetDir)System.ValueTuple.dll" />
 
       </Component>
     </ComponentGroup>
