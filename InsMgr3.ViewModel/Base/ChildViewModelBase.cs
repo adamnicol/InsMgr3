@@ -12,6 +12,7 @@ namespace InsMgr3.ViewModel.Base
     public abstract class ChildViewModelBase : ViewModelBase, IChildViewModel, IMVVMDockingProperties
     {
         public string Caption { get; set; }
+        public bool IsActive { get; set; }
 
         public event EventHandler RequestClose;
 

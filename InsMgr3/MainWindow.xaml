@@ -47,6 +47,7 @@
                         <Style TargetType="{x:Type dxdo:DocumentPanel}">
                             <Setter Property="Caption" Value="{Binding Caption}" />
                             <Setter Property="CloseCommand" Value="{Binding CloseCommand}" />
+                            <Setter Property="IsActive" Value="{Binding IsActive}" />
                         </Style>
                     </dxdo:DocumentGroup.ItemStyle>
                 </dxdo:DocumentGroup>

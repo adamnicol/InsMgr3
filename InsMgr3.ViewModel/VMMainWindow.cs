@@ -30,6 +30,7 @@ namespace InsMgr3.ViewModel
 
         public void AddChildWindow(IChildViewModel window)
         {
+            window.IsActive = true;
             window.RequestClose += OnChildRequestClose;
            
             Views.Add(window);

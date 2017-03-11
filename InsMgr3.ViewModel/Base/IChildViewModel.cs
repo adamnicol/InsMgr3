@@ -18,12 +18,17 @@ namespace InsMgr3.ViewModel.Base
         string Caption { get; set; }
 
         /// <summary>
+        /// Whether the child window currently has focus.
+        /// </summary>
+        bool IsActive { get; set; }
+
+        /// <summary>
         /// Allows binding of the tab page close button.
         /// </summary>
         ICommand CloseCommand { get; }
 
         /// <summary>
-        /// Event that gets fired when the tab has been closed.
+        /// Event that gets fired when the child window is closed.
         /// </summary>
         event EventHandler RequestClose;
     }
