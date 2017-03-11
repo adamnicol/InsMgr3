@@ -33,7 +33,7 @@ namespace InsMgr3.ViewModel.Commands
         {
             var vm = resolver.Resolve<VMConnectionWindow>();
 
-            if (dialogService.ShowDialog(vm) == true)
+            if (dialogService.ShowDialog(vm))
             {
                 waitService.SetBusyState();
                 mainWindow.AddChildWindow(new VMChatWindow() { Caption = "Chat Window" });

@@ -22,16 +22,16 @@ namespace InsMgr3.Configuration
 
             container.RegisterInstance<IResolver>(container);
             container.RegisterInstance<ILogger>(LogManager.GetCurrentClassLogger());
-            container.RegisterInstance(CreateDialogService());
+            container.RegisterInstance(CreateDialogService(container));
 
             ViewModel.Configuration.Configure.Resolver(container);
 
             return container;
         }
 
-        private static IDialogService CreateDialogService()
+        private static IDialogService CreateDialogService(IResolver resolver)
         {
-            var service = new DialogService();
+            var service = new DialogService(resolver);
 
             service.Register<VMConnectionWindow, ConnectionWindow>();
 

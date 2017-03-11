@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using DryIoc;
 
 namespace InsMgr3.ViewModel.Services
 {
     public class DialogService : IDialogService
     {
-        private readonly Dictionary<Type, Func<Window>> dialogs;
+        private Dictionary<Type, Func<Window>> dialogs;
+        private IResolver resolver;
 
-        public DialogService()
+        public DialogService(IResolver resolver)
         {
-            dialogs = new Dictionary<Type, Func<Window>>();
+            this.dialogs = new Dictionary<Type, Func<Window>>();
+            this.resolver = resolver;
         }
 
         public void Register<TViewModel>(Func<Window> instance)
@@ -32,7 +35,7 @@ namespace InsMgr3.ViewModel.Services
             dialogs.Add(typeof(TViewModel), Activator.CreateInstance<TWindow>);
         }
 
-        public bool? ShowDialog<T>(T dataContext)
+        public bool ShowDialog<T>(T dataContext)
         {
             Mouse.SetCursor(Cursors.Wait);
 
@@ -42,7 +45,12 @@ namespace InsMgr3.ViewModel.Services
             window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             window.ShowInTaskbar = false;
 
-            return window.ShowDialog();
+            return window.ShowDialog() ?? false;
+        }
+
+        public bool ShowDialog<T>()
+        {
+            return ShowDialog(resolver.Resolve<T>());
         }
     }
 }

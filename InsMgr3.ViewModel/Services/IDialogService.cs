@@ -25,8 +25,13 @@ namespace InsMgr3.ViewModel.Services
         void Register<TViewModel, TWindow>() where TWindow : Window;
 
         /// <summary>
-        /// Shows a modal dialog with the specified data context.
+        /// Shows a modal dialog using the specified data context.
         /// </summary>
-        bool? ShowDialog<T>(T dataContext);
+        bool ShowDialog<T>();
+
+        /// <summary>
+        /// Shows a modal dialog using the specified data context.
+        /// </summary>
+        bool ShowDialog<T>(T dataContext);
     }
 }
