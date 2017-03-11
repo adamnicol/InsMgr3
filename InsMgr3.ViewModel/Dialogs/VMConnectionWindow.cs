@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using InsMgr3.ViewModel.Base;
 using InsMgr3.ViewModel.Commands;
-using PropertyChanged;
 using InsMgr3.Model.Settings;
+using PropertyChanged;
 
 namespace InsMgr3.ViewModel.Dialogs
 {
     [ImplementPropertyChanged]
     public class VMConnectionWindow : ViewModelBase
     {
+        private VMMainWindow mainWindow;
+
         public string AddressOrHostname { get; set; }
         public string PortNumber { get; set; }
         public string Password { get; set; }
@@ -22,13 +24,17 @@ namespace InsMgr3.ViewModel.Dialogs
 
         public ICommand ConnectCommand => new DelegateCommand(Connect);
 
-        public VMConnectionWindow(ISettingsModel sm)
+        public VMConnectionWindow(VMMainWindow mainWindow, ISettingsModel sm)
         {
+            this.mainWindow = mainWindow;
+
             ChatName = sm.Settings.ChatName;
         }
 
         private void Connect()
         {
+            mainWindow.AddChildWindow(new VMChatWindow() { Caption = "Chat Window" });
+
             DialogResult = true;
         }
     }

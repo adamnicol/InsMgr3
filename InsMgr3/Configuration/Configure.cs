@@ -18,7 +18,8 @@ namespace InsMgr3.Configuration
         {
             var container = new Container();
 
-            container.Register<VMMainWindow>();
+            container.Register<VMMainWindow>(Reuse.Singleton);
+
             container.RegisterInstance<IResolver>(container);
             container.RegisterInstance<ILogger>(LogManager.GetCurrentClassLogger());
             container.RegisterInstance(CreateDialogService());
