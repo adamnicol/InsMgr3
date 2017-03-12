@@ -20,7 +20,7 @@ namespace InsMgr3.ViewModel.Configuration
             container.Register<DisconnectCommand>(Reuse.Singleton);
             container.Register<CloseCommand>(Reuse.Singleton);
 
-            container.Register<IWaitService, WaitService>();
+            container.Register<IWaitService, WaitService>(Reuse.Singleton);
 
             Model.Configuration.Configure.Resolver(container);
         }
