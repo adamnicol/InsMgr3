@@ -72,6 +72,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -155,6 +156,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InsMgr3.Common\InsMgr3.Common.csproj">
+      <Project>{5011de69-50fc-46d8-ab50-4957cdade060}</Project>
+      <Name>InsMgr3.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InsMgr3.Model\InsMgr3.Model.csproj">
       <Project>{6308e102-b124-46aa-9a65-707e175dfd17}</Project>
       <Name>InsMgr3.Model</Name>
