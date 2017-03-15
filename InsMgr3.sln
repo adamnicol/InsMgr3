@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsMgr3", "InsMgr3\InsMgr3.csproj", "{90EFAE17-EDFA-453F-9F40-CF591D6B4B1C}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "InsMgr3.Installer.Bootstrap", "Installer\InsMgr3.Installer.Bootstrap\InsMgr3.Installer.Bootstrap.wixproj", "{E1245213-2618-4ECB-BCD7-9BC1F5F2C524}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsMgr3.Model", "InsMgr3.Model\InsMgr3.Model.csproj", "{6308E102-B124-46AA-9A65-707E175DFD17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsMgr3.Common", "InsMgr3.Common\InsMgr3.Common.csproj", "{5011DE69-50FC-46D8-AB50-4957CDADE060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,14 @@ Global
 		{6308E102-B124-46AA-9A65-707E175DFD17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6308E102-B124-46AA-9A65-707E175DFD17}.Release|x86.ActiveCfg = Release|Any CPU
 		{6308E102-B124-46AA-9A65-707E175DFD17}.Release|x86.Build.0 = Release|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Debug|x86.Build.0 = Debug|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Release|x86.ActiveCfg = Release|Any CPU
+		{5011DE69-50FC-46D8-AB50-4957CDADE060}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
