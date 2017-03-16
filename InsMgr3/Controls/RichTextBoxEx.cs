@@ -38,7 +38,7 @@ namespace InsMgr3.Controls
             {
                 updating = true;
                 UpdateEmoticons();
-                RichText = new TextRange(Document.ContentStart, Document.ContentEnd).Text;
+                RichText = GetText();
                 updating = false;
             }
         }
@@ -51,16 +51,17 @@ namespace InsMgr3.Controls
 
         private void UpdateEmoticons()
         {
-            foreach (var shortcut in emoticons.Keys)
+            foreach (var emote in emoticons)
             {
                 TextRange range;
-                while ((range = FindMatch(Document.ContentStart, shortcut)) != null)
+                while ((range = FindMatch(Document.ContentStart, emote.Key)) != null)
                 {
-                    BitmapImage bitmap = emoticons[shortcut].ToBitmapImage();
+                    BitmapImage bitmap = emote.Value.ToBitmapImage();
                     var image = new Image()
                     {
                         Source = bitmap,
                         Width = bitmap.Width,
+                        Tag = emote.Key,
                     };
 
                     InsertEmoticon(range, image);
@@ -109,6 +110,32 @@ namespace InsMgr3.Controls
 
                 CaretPosition = runAfter.ContentStart;
             }
+        }
+
+        public string GetText()
+        {
+            var builder = new StringBuilder();
+
+            foreach (Block block in Document.Blocks)
+            {
+                if (block is Paragraph p)
+                {
+                    foreach (Inline inline in p.Inlines)
+                    {
+                        if (inline is Run run)
+                            builder.Append(run.Text);
+
+                        else if (inline is InlineUIContainer container)
+                        {
+                            var image = container.Child as Image;
+                            var emoticon = image.Tag?.ToString();
+                            builder.Append(emoticon);
+                        }
+                    }
+                }
+            }
+
+            return builder.ToString();
         }
     }
 }
