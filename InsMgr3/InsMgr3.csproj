@@ -98,6 +98,9 @@
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration\Configure.cs" />
+    <Compile Include="Controls\EmoticonMenu.xaml.cs">
+      <DependentUpon>EmoticonMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RichTextBoxEx.cs" />
     <Compile Include="Dialogs\ConnectionWindow.xaml.cs">
       <DependentUpon>ConnectionWindow.xaml</DependentUpon>
@@ -105,6 +108,10 @@
     <Page Include="ChatWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EmoticonMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\ConnectionWindow.xaml">
       <SubType>Designer</SubType>
