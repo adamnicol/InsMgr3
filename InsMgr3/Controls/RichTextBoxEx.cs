@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,8 +44,23 @@ namespace InsMgr3.Controls
 
         private Dictionary<string, Bitmap> emoticons = new Dictionary<string, Bitmap>()
         {
-            { ":)", Properties.Resources.Emoticon_Smile },
-            { ":(", Properties.Resources.Emoticon_Sad },
+            { ":D",  Properties.Resources.Emoticon_BigSmile },
+            { ":s",  Properties.Resources.Emoticon_Confused },
+            { ":&",  Properties.Resources.Emoticon_Cool },
+            { ":'(", Properties.Resources.Emoticon_Cry },
+            { ":$",  Properties.Resources.Emoticon_Embarrassed },
+            { "(l)", Properties.Resources.Emoticon_Laugh },
+            { ":@",  Properties.Resources.Emoticon_Mad },
+            { "(n)", Properties.Resources.Emoticon_Nuts },
+            { ":|",  Properties.Resources.Emoticon_Oh },
+            { ":(",  Properties.Resources.Emoticon_Sad },
+            { ":x",  Properties.Resources.Emoticon_Sick },
+            { ":)",  Properties.Resources.Emoticon_Smile },
+            { ":^",  Properties.Resources.Emoticon_Suspicious },
+            { ":p",  Properties.Resources.Emoticon_Tongue },
+            { ":/",  Properties.Resources.Emoticon_Unsure },
+            { ":%",  Properties.Resources.Emoticon_Weird },
+            { ";)",  Properties.Resources.Emoticon_Wink },
         };
 
         private void UpdateEmoticons()
@@ -112,7 +126,7 @@ namespace InsMgr3.Controls
             }
         }
 
-        public string GetText()
+        private string GetText()
         {
             var builder = new StringBuilder();
 

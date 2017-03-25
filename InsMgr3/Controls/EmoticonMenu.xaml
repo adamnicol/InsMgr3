@@ -6,21 +6,19 @@
              mc:Ignorable="d">
     
     <UserControl.Resources>
-        <Style TargetType="Button" >
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Name="Border" BorderThickness="1">
-                            <ContentPresenter Margin="3" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        <ControlTemplate TargetType="Button" x:Key="Emoticon">
+            <Border Name="Border" BorderThickness="1">
+                <ContentPresenter Margin="3" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style TargetType="Button">
+            <Setter Property="Template" Value="{StaticResource Emoticon}" />
+            <Setter Property="Command" Value="{Binding EmoticonCommand}" />
         </Style>
     </UserControl.Resources>
 
@@ -40,58 +38,58 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0" ToolTip=":o">
+        <Button Grid.Row="0" Grid.Column="0" CommandParameter=":o">
             <Image Source="/Resources/Emoticons/Emoticon_Amazed.gif" />
         </Button>
-        <Button Grid.Row="0" Grid.Column="1" ToolTip=":D">
+        <Button Grid.Row="0" Grid.Column="1" CommandParameter=":D">
             <Image Source="/Resources/Emoticons/Emoticon_BigSmile.gif" />
         </Button>
-        <Button Grid.Row="0" Grid.Column="2" ToolTip=":s">
+        <Button Grid.Row="0" Grid.Column="2" CommandParameter=":s">
             <Image Source="/Resources/Emoticons/Emoticon_Confused.gif" />
         </Button>
-        <Button Grid.Row="0" Grid.Column="3" ToolTip=":&amp;">
+        <Button Grid.Row="0" Grid.Column="3" CommandParameter=":&amp;">
             <Image Source="/Resources/Emoticons/Emoticon_Cool.gif" />
         </Button>
-        <Button Grid.Row="0" Grid.Column="4" ToolTip=":'(">
+        <Button Grid.Row="0" Grid.Column="4" CommandParameter=":'(">
             <Image Source="/Resources/Emoticons/Emoticon_Cry.gif" />
         </Button>
-        <Button Grid.Row="0" Grid.Column="5" ToolTip=":$">
+        <Button Grid.Row="0" Grid.Column="5" CommandParameter=":$">
             <Image Source="/Resources/Emoticons/Emoticon_Embarrassed.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="0" ToolTip="(l)">
+        <Button Grid.Row="1" Grid.Column="0" CommandParameter="(l)">
             <Image Source="/Resources/Emoticons/Emoticon_Laugh.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" ToolTip=":@">
+        <Button Grid.Row="1" Grid.Column="1" CommandParameter=":@">
             <Image Source="/Resources/Emoticons/Emoticon_Mad.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="2" ToolTip="(n)">
+        <Button Grid.Row="1" Grid.Column="2" CommandParameter="(n)">
             <Image Source="/Resources/Emoticons/Emoticon_Nuts.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="3" ToolTip=":|">
+        <Button Grid.Row="1" Grid.Column="3" CommandParameter=":|">
             <Image Source="/Resources/Emoticons/Emoticon_Oh.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="4" ToolTip=":(">
+        <Button Grid.Row="1" Grid.Column="4" CommandParameter=":(">
             <Image Source="/Resources/Emoticons/Emoticon_Sad.gif" />
         </Button>
-        <Button Grid.Row="1" Grid.Column="5" ToolTip=":x">
+        <Button Grid.Row="1" Grid.Column="5" CommandParameter=":x">
             <Image Source="/Resources/Emoticons/Emoticon_Sick.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="0" ToolTip=":)">
+        <Button Grid.Row="2" Grid.Column="0" CommandParameter=":)">
             <Image Source="/Resources/Emoticons/Emoticon_Smile.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="1" ToolTip=":^">
+        <Button Grid.Row="2" Grid.Column="1" CommandParameter=":^">
             <Image Source="/Resources/Emoticons/Emoticon_Suspicious.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="2" ToolTip=":p">
+        <Button Grid.Row="2" Grid.Column="2" CommandParameter=":p">
             <Image Source="/Resources/Emoticons/Emoticon_Tongue.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="3" ToolTip=":/">
+        <Button Grid.Row="2" Grid.Column="3" CommandParameter=":/">
             <Image Source="/Resources/Emoticons/Emoticon_Unsure.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="4" ToolTip=":%">
+        <Button Grid.Row="2" Grid.Column="4" CommandParameter=":%">
             <Image Source="/Resources/Emoticons/Emoticon_Weird.gif" />
         </Button>
-        <Button Grid.Row="2" Grid.Column="5" ToolTip=";)">
+        <Button Grid.Row="2" Grid.Column="5" CommandParameter=";)">
             <Image Source="/Resources/Emoticons/Emoticon_Wink.gif" />
         </Button>
     </Grid>

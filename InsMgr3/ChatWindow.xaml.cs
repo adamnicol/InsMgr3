@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InsMgr3.ViewModel;
+using InsMgr3.ViewModel.EventArguments;
 
 namespace InsMgr3
 {
@@ -23,6 +25,21 @@ namespace InsMgr3
         public ChatWindow()
         {
             InitializeComponent();
+            DataContextChanged += OnDataContextChanged;
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue != null)
+            {
+                var context = e.NewValue as VMChatWindow;
+                context.InsertEmoticon += OnInsertEmoticon;
+            }
+        }
+
+        private void OnInsertEmoticon(object sender, EmoticonEventArgs e)
+        {
+            messageWindow.CaretPosition.InsertTextInRun(e.Shortcut);
         }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="Commands\DisconnectCommand.cs" />
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Dialogs\VMConnectionWindow.cs" />
+    <Compile Include="EventArguments\EmoticonEventArgs.cs" />
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DialogService.cs" />

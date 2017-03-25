@@ -64,7 +64,7 @@
                                 <ColumnDefinition Width="70" />
                             </Grid.ColumnDefinitions>
 
-                            <ctl:RichTextBoxEx RichText="{Binding Message}" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" />
+                            <ctl:RichTextBoxEx RichText="{Binding Message}" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" x:Name="messageWindow" />
                             <Button Command="{Binding SendCommand}" Grid.Column="3" Content="Send" Margin="3" />
                         </Grid>
 
@@ -73,5 +73,4 @@
             </dxdo:LayoutGroup>
         </dxdo:LayoutGroup>
     </dxdo:DockLayoutManager>
-
 </UserControl>
