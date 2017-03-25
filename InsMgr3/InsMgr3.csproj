@@ -102,6 +102,7 @@
       <DependentUpon>EmoticonMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RichTextBoxEx.cs" />
+    <Compile Include="Converters\MultiValueConverter.cs" />
     <Compile Include="Dialogs\ConnectionWindow.xaml.cs">
       <DependentUpon>ConnectionWindow.xaml</DependentUpon>
     </Compile>
