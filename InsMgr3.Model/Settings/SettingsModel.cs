@@ -4,14 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InsMgr3.Model.Helpers;
+using Newtonsoft.Json;
 using NLog;
 
 namespace InsMgr3.Model.Settings
 {
     public class SettingsModel : ISettingsModel
     {
-        private FileInfo ConfigPath => new FileInfo(
+        private FileInfo ConfigFile => new FileInfo(
             $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\InsMgr3\settings.json");
 
         private ILogger log;
@@ -28,36 +28,51 @@ namespace InsMgr3.Model.Settings
             get
             {
                 if (settings == null)
-                    settings = GetSettings();
+                    settings = LoadSettings();
 
                 return settings;
             }
         }
 
-        private ISettings GetSettings()
+        private ISettings LoadSettings()
         {
-            try
+            if (ConfigFile.Exists)
             {
-                return Serializer.Deserialize<Settings>(ConfigPath) ?? new Settings();
+                try
+                {
+                    var json = File.ReadAllText(ConfigFile.FullName);
+                    return JsonConvert.DeserializeObject<Settings>(json);
+                }
+
+                catch (Exception ex)
+                {
+                    log.Error(ex);
+                }
             }
 
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                return new Settings();
-            }
+            return new Settings();
         }
 
         public void SaveSettings()
         {
-            try
+            if (settings != null)
             {
-                Serializer.Serialize(Settings, ConfigPath);
-            }
+                try
+                {
+                    if (!ConfigFile.Directory.Exists)
+                        ConfigFile.Directory.Create();
 
-            catch (Exception ex)
-            {
-                log.Error(ex);
+                    using (StreamWriter sw = ConfigFile.CreateText())
+                    {
+                        var json = JsonConvert.SerializeObject(settings);
+                        sw.Write(json);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    log.Error(ex);
+                }
             }
         }
 
